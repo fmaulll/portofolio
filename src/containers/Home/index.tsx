@@ -1,6 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
-import nice from "../../assets/images/nice.png"
-import notNice from "../../assets/images/not-nice.png"
+import nice from "../../assets/images/nice.png";
+import { ReactComponent as LinkedinIcon } from "../../assets/icons/Linkedin.svg";
+import { ReactComponent as GithubIcon } from "../../assets/icons/Github.svg";
 
 const Home = () => {
   const makeId = (length: number) => {
@@ -15,14 +16,14 @@ const Home = () => {
   };
 
   const titleType = (words: string) => {
-    const typeArr = []
-    const wordsArr = words.split("")
-    for(let i = 0; i < words.length;i++){
-      setTimeout(()=>{
-        return typeArr.push(wordsArr[i])
-      },200)
+    const typeArr = [];
+    const wordsArr = words.split("");
+    for (let i = 0; i < words.length; i++) {
+      setTimeout(() => {
+        return typeArr.push(wordsArr[i]);
+      }, 200);
     }
-  }
+  };
 
   const history = [
     {
@@ -92,80 +93,75 @@ const Home = () => {
     },
   ];
   return (
-    <div className="min-h-screen w-full">
-      <div className="flex w-full h-screen">
-        <div className="flex-1 w-full flex flex-col justify-center">
-          <div className="w-full">
-            <h1 className="text-red">
-              <span className="text-gray">{"<"}</span>
-              h1
-              <span className="text-gray">{">"}</span>
-            </h1>
-            <div className="text-4xl" style={{ borderLeft: "2px solid gray" }}>
-              <h1 className="text-gray ml-4">
-                <TypeAnimation
-                  sequence={["Hey stupi", 1000, "Hi Visitor!", 1000]}
-                  speed={50} // Custom Speed from 1-99 - Default Speed: 40
-                  wrapper="span" // Animation will be rendered as a <span>
-                  repeat={Infinity} // Repeat this Animation Sequence infinitely
-                />
-                <br />
-                <h1 className="text-red text-base">
-                  <span className="text-gray">{"<"}</span>
-                  br
-                  <span className="text-gray">{"/>"}</span>
-                </h1>
-                My name is Maul
-                <br />
-                <h1 className="text-red text-base">
-                  <span className="text-gray">{"<"}</span>
-                  br
-                  <span className="text-gray">{"/>"}</span>
-                </h1>
-                I'm a web developer
-              </h1>
-            </div>
-            <h1 className="text-red">
-              <span className="text-gray">{"</"}</span>
-              h1
-              <span className="text-gray">{">"}</span>
-            </h1>
-          </div>
-          <div className="flex">
-            <h1 className="text-red">
-              <span className="text-gray">{"<"}</span>p
-              <span className="text-gray">{">"}</span>
-            </h1>
-            <h1 className="text-gray">
-              Frontend Developer && Javascript Enthusiast
-            </h1>
-            <h1 className="text-red">
-              <span className="text-gray">{"</"}</span>p
-              <span className="text-gray">{">"}</span>
-            </h1>
-          </div>
-          <a className="w-min flex cursor-pointer">
-            <h1 className="text-red">
-              <span className="text-gray">{"<"}</span>a
-              <span className="text-gray">{">"}</span>
-            </h1>
-            <div className="text-red">
-              <h1 className="text-gray w-max">Download my resume 📩</h1>
-            </div>
-            <h1 className="text-red">
-              <span className="text-gray">{"</"}</span>a
-              <span className="text-gray">{">"}</span>
-            </h1>
+    <div className="w-full">
+      <div className="flex min-h-[calc(100vh-64px)] w-full justify-center items-center flex-col relative">
+        <div className="flex items-center justify-center">
+          <p className="px-4 py-2 font-semibold rounded-t-full rounded-bl-full bg-gray">
+            <TypeAnimation
+              sequence={[
+                "Hi,",
+                1000,
+                "Hi, my name is maul",
+                2000,
+                "",
+                1000,
+                "I'm a Front",
+                1000,
+                "I'm a Frontend Developer",
+                2000,
+                "I'm bad at design",
+                1000,
+                "",
+                1000,
+              ]}
+              speed={50} // Custom Speed from 1-99 - Default Speed: 40
+              wrapper="span" // Animation will be rendered as a <span>
+              repeat={Infinity} // Repeat this Animation Sequence infinitely
+            />
+          </p>
+          <img className="w-40" src={nice} alt="fmaulll" />
+        </div>
+        <div className="justify-center items-center flex flex-col">
+          <h1 className="text-gray font-semibold text-3xl md:text-7xl">
+            Frontend Developer
+          </h1>
+          <h1 className="text-gray text-2xl mt-2 font-semibold md:text-7xl md:mt-4">
+            <span className="font-light">Based in</span> Indonesia
+          </h1>
+        </div>
+        <h1 className="text-gray mt-4 text-center">
+          I develop things, I love making things, I love cats
+        </h1>
+        <button className="focus:outline-none hover:bg-[#fcc238] bg-yellow rounded-xl px-4 py-2 font-semibold mt-4 text-purple">
+          Let's Talk
+        </button>
+        <div className="w-full hidden md:flex items-center md:flex-row mt-16">
+          <h2 className="text-gray ">Check Out My</h2>
+          <a
+            className="md:ml-16"
+            href="https://www.linkedin.com/in/fmaulll/"
+            target="_blank"
+          >
+            <LinkedinIcon className="fill-blue-sky" />
+          </a>
+          <a
+            className="md:ml-16"
+            href="https://github.com/fmaulll"
+            target="_blank"
+          >
+            <GithubIcon className="fill-blue-sky" />
           </a>
         </div>
-        <div className="flex-1 w-full flex items-end justify-center flex-col">
-          <div className="hidden items-center justify-center relative lg:flex">
-            <div className=" animate-spin-slow rounded-full p-52 border-8 border-dashed border-yellow " />
-            <img className="absolute" src={notNice} alt="fmaulll" />
-          </div>
+        <div className="flex flex-col items-center absolute bottom-0">
+          <h2 className="font-roboto text-gray text-sm md:text-base">History</h2>
+          <div className="border-2 border-l-gray border-y-0 border-r-0 h-6" />
         </div>
       </div>
-      <div className="min-h-screen flex justify-center items-center pb-10">
+
+      <div
+        className="min-h-screen flex justify-center items-center pb-10 font-roboto"
+        // style={{ fontFamily: "'Roboto Mono', monospace" }}
+      >
         <div className="border border-gray w-full px-4 md:px-8 py-2">
           <div className="flex text-xs md:text-base">
             <h2 className="font-sans text-gray">PROBLEMS</h2>
@@ -214,6 +210,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -39,42 +39,38 @@ const Navbar = () => {
     }
   }, [window.location.pathname]);
   return (
-    <div className="z-10 w-full flex flex-col items-center justify-center fixed top-0">
-      <div className="px-4 flex justify-between w-full items-center h-16 bg-blue drop-shadow-sm md:px-40">
-        <h1 className="text-lg text-slate-100 text-blue-sky">
+    <div className="w-full flex flex-col items-center justify-center">
+      <div className="px-4 flex justify-between w-full items-center bg-purple h-16 md:px-40">
+        <h1 className="text-lg text-blue-sky font-bold">
           fmaulll
-          <span className="text-purple-light">()</span>
         </h1>
         <div className="hidden lg:flex">
           {navs.map((nav, index) => (
             <Link
-              className={`${index !== 0 && "ml-6"} text-slate-100`}
+              className={`${index !== 0 && "ml-10"}`}
               to={nav.url}
               onClick={() => dispatch(uiActions.setLocation(nav.title))}
             >
-              <h2 className="text-yellow">
-                <span className="text-gray">{"<"}</span>
+              <h2 className={`text-yellow font-semibold ${location === nav.title && "border-2 border-b-red border-x-0 border-t-0"}`}>
                 {nav.title}
-                <span className="text-gray">{"/>"}</span>
               </h2>
             </Link>
           ))}
           <div
-            className="ml-6 text-slate-100 cursor-pointer"
+            className="ml-6 cursor-pointer"
             onClick={handleContact}
           >
-            <h2 className="text-slate-100 text-blue-sky">
-              contact
-              <span className="text-purple-light">()</span>
+            <h2 className="text-blue-sky font-semibold">
+              Contact
             </h2>
           </div>
         </div>
         {showMenu ? (
           <div
-            className="text-slate-100 cursor-pointer lg:hidden"
+            className="cursor-pointer lg:hidden"
             onClick={() => dispatch(uiActions.openBurger())}
           >
-            <h2 className="text-slate-100 text-blue-sky">
+            <h2 className="text-blue-sky">
               close
               <span className="text-purple-light">()</span>
             </h2>
@@ -84,24 +80,12 @@ const Navbar = () => {
             className="text-slate-100 cursor-pointer lg:hidden"
             onClick={() => dispatch(uiActions.openBurger())}
           >
-            <h2 className="text-slate-100 text-blue-sky">
+            <h2 className="text-blue-sky">
               burger
               <span className="text-purple-light">()</span>
             </h2>
           </div>
         )}
-      </div>
-      <div className="px-4 flex w-full items-center bg-purple drop-shadow-sm md:px-40">
-        <div className="flex items-center text-gray">
-          src <Arrow className="w-3 ml-1" />
-        </div>
-        <div className="flex items-center text-gray ml-2">
-          containers <Arrow className="w-3 ml-1" />
-        </div>
-        <div className="flex items-center text-gray ml-2">
-          {location} <Arrow className="w-3 ml-1" />
-        </div>
-        <div className="flex items-center text-gray ml-2">index.tsx</div>
       </div>
     </div>
   );

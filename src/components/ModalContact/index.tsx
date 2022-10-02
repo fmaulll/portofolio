@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { uiActions } from "../../store/ui-slice";
 import { ReactComponent as CrossIcon } from "../../assets/icons/Cross.svg";
 import emailjs from "emailjs-com";
-import { Toast } from "flowbite-react";
 import { ReactComponent as CheckIcon } from "../../assets/icons/Check.svg";
 
 const ModalContact = () => {
@@ -50,8 +49,8 @@ const ModalContact = () => {
     }
   };
   return (
-    <div className="w-full h-screen fixed flex items-center justify-center bg-black-invisible top-0 left-0">
-      <div className="z-auto bg-purple opacity-100 border border-gray p-8 flex flex-col w-4/5 md:w-3/6">
+    <div className="w-full h-screen fixed flex items-center justify-center bg-black-invisible top-0 left-0 p-4">
+      <div className="z-auto bg-purple opacity-100 border border-gray p-8 flex flex-col w-full md:w-3/6">
         <div className="justify-end flex">
           <CrossIcon
             className="w-4 cursor-pointer"
@@ -104,13 +103,10 @@ const ModalContact = () => {
         </form>
         {showToast && (
           <div className="w-full flex items-center justify-center mt-4">
-            <Toast>
-              <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-800 dark:text-green-200">
-                <CheckIcon className="h-5 w-5" />
-              </div>
-              <div className="ml-3 text-sm font-normal">Message sent!</div>
-              <Toast.Toggle />
-            </Toast>
+            <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-800 dark:text-green-200">
+              <CheckIcon className="h-5 w-5" />
+            </div>
+            <div className="ml-3 text-sm font-normal">Message sent!</div>
           </div>
         )}
       </div>
