@@ -2,7 +2,6 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -15,6 +14,7 @@ module.exports = {
         "spin-slow": "spin 120s linear infinite",
       },
       colors: {
+        black: "#111111",
         "black-invisible": "rgba(0, 0, 0, 0.5)",
         purple: "#0c0020",
         "purple-light": "#a05bae",
@@ -23,9 +23,12 @@ module.exports = {
         yellow: "#fdb917",
         red: "#b9374d",
         gray: "#97a7a6",
-        green: "#7fb271"
+        green: "#7fb271",
+      },
+      fontFamily: {
+        roboto: "'Roboto Mono', monospace",
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };
