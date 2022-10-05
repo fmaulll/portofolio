@@ -6,15 +6,18 @@ module.exports = {
   theme: {
     extend: {
       dropShadow: {
-        sm: "0 1px 1px rgb(255 255 255 / 0.1)",
+        sm: "0 0 10px rgb(255 255 255 / 0.1)",
         "sm-top": "0 -1px 1px rgb(255 255 255 / 0.1)",
+        "sm-top-light": "0 -1px 1px rgb(0 0 0 / 0.1)",
       },
       animation: {
         "bounce-slow": "bounce 3s linear infinite",
         "spin-slow": "spin 120s linear infinite",
       },
       colors: {
-        black: "#111111",
+        light: "#f4f7fb",
+        white: "#FFFFFF",
+        black: "#202020",
         "black-invisible": "rgba(0, 0, 0, 0.5)",
         purple: "#0c0020",
         "purple-light": "#a05bae",

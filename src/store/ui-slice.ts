@@ -7,6 +7,7 @@ interface UiState {
   showToast: boolean;
   location: string;
   openBurger: boolean;
+  darkMode: boolean;
 }
 
 const initialState: UiState = {
@@ -15,6 +16,7 @@ const initialState: UiState = {
   showToast: false,
   location: "",
   openBurger: false,
+  darkMode: true
 };
 
 const uiSlice = createSlice({
@@ -37,6 +39,9 @@ const uiSlice = createSlice({
     },
     openBurger(state) {
       state.openBurger = !state.openBurger;
+    },
+    showDarkMode(state) {
+      state.darkMode = !state.darkMode;
     },
   },
 });
