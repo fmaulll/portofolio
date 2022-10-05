@@ -1,102 +1,24 @@
 import { TypeAnimation } from "react-type-animation";
 import nice from "../../assets/images/nice.png";
+import notNice from "../../assets/images/not-nice.png";
+import JavascriptLogo from "../../assets/images/javascript-logo.png";
+import ReactLogo from "../../assets/images/react-logo.png";
+import NodeLogo from "../../assets/images/node-logo.png";
+import HTMLCSSLogo from "../../assets/images/html-css-logo.png";
 import { ReactComponent as LinkedinIcon } from "../../assets/icons/Linkedin.svg";
 import { ReactComponent as GithubIcon } from "../../assets/icons/Github.svg";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { uiActions } from "../../store/ui-slice";
 
 const Home = () => {
-  const makeId = (length: number) => {
-    var result = "";
-    let characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  };
+  const dark = useAppSelector((state) => state.ui.darkMode);
+  const dispatch = useAppDispatch()
 
-  const titleType = (words: string) => {
-    const typeArr = [];
-    const wordsArr = words.split("");
-    for (let i = 0; i < words.length; i++) {
-      setTimeout(() => {
-        return typeArr.push(wordsArr[i]);
-      }, 200);
-    }
-  };
-
-  const history = [
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "untracked",
-      story: "maul come into the world",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Mon Aug 12 00:00:01 2019",
-      story: "tryin to get a cs degree",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Thu Jun 10 00:00:01 2021",
-      story: "wasted the time by playin around",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Fri Jun 11 00:00:01 2021",
-      story: "started learning code",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Wed Oct 20 00:00:01 2021",
-      story: "struggling",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Tue Feb 08 09:06:01 2022",
-      story: "applying intern",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Wed Feb 16 09:15:01 2022",
-      story: "got accepted by Jagoan Hosting as a programmer intern",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Mon Feb 21 09:20:01 2022",
-      story: "strugglin(again) with laravel",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Thu May 12 09:23:01 2022",
-      story: "applying a fulltime job just for fun",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Thu Jun 09 10:32:01 2022",
-      story: "got a accepted as a frontend devs",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Thu Jun 09 11:22:01 2022",
-      story: "resign from Jagoan Hosting, thx btw",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Thu Jun 16 08:22:01 2022",
-      story: "first day working as a frontend at PT Infosys Solusi Terpadu",
-    },
-    {
-      author: "fmaulll <maul2821@gmail.com>",
-      date: "Fri Sep 30 11:12:00 2022",
-      story: "it's fun ngl",
-    },
-  ];
   return (
     <div className="w-full">
       <div className="flex min-h-[calc(100vh-64px)] w-full justify-center items-center flex-col relative">
         <div className="flex items-center justify-center">
-          <p className="px-4 py-2 font-semibold rounded-t-full rounded-bl-full bg-gray">
+          <p className={`px-4 py-2 font-semibold rounded-t-full rounded-bl-full ${dark ? "bg-white" : "bg-white drop-shadow"}`}>
             <TypeAnimation
               sequence={[
                 "Hi,",
@@ -119,98 +41,86 @@ const Home = () => {
               repeat={Infinity} // Repeat this Animation Sequence infinitely
             />
           </p>
-          <img className="w-40" src={nice} alt="fmaulll" />
+          <img className="w-40" src={dark ? nice : notNice} alt="fmaulll" />
         </div>
         <div className="justify-center items-center flex flex-col">
-          <h1 className="text-gray font-semibold text-3xl md:text-7xl">
+          <h1 className={`${dark?"text-gray":"text-black"} font-bold text-3xl md:text-7xl`}>
             Frontend Developer
           </h1>
-          <h1 className="text-gray text-2xl mt-2 font-semibold md:text-7xl md:mt-4">
+          <h1 className={`${dark?"text-gray":"text-black"} text-2xl mt-2 font-bold md:text-7xl md:mt-4`}>
             <span className="font-light">Based in</span> Indonesia
           </h1>
         </div>
         <h1 className="text-gray mt-4 text-center">
           I develop things, I love making things, I love cats
         </h1>
-        <button className="focus:outline-none hover:bg-[#fcc238] bg-yellow rounded-xl px-4 py-2 font-semibold mt-4 text-purple">
+        <button onClick={()=>dispatch(uiActions.openModal())} className={`focus:outline-none hover:bg-[#fcc238] bg-yellow rounded-xl px-4 py-2 font-semibold mt-4 text-light drop-shadow transition-all`}>
           Let's Talk
         </button>
         <div className="w-full hidden md:flex items-center md:flex-row mt-16">
           <h2 className="text-gray ">Check Out My</h2>
           <a
-            className="md:ml-16"
+            className="md:ml-16 flex"
             href="https://www.linkedin.com/in/fmaulll/"
             target="_blank"
           >
             <LinkedinIcon className="fill-blue-sky" />
+            <p className={`${dark ? "text-yellow" : "text-gray"} ml-2`}>Fikri Maulana Ibrahim</p>
           </a>
           <a
-            className="md:ml-16"
+            className="md:ml-16 flex"
             href="https://github.com/fmaulll"
             target="_blank"
           >
             <GithubIcon className="fill-blue-sky" />
+            <p className={`${dark ? "text-yellow" : "text-gray"} ml-2`}>fmaulll</p>
           </a>
         </div>
         <div className="flex flex-col items-center absolute bottom-0">
-          <h2 className="font-roboto text-gray text-sm md:text-base">History</h2>
+          <h2 className="font-roboto text-gray text-sm md:text-base">
+            Service
+          </h2>
           <div className="border-2 border-l-gray border-y-0 border-r-0 h-6" />
         </div>
       </div>
 
-      <div
-        className="min-h-screen flex justify-center items-center pb-10 font-roboto"
-        // style={{ fontFamily: "'Roboto Mono', monospace" }}
-      >
-        <div className="border border-gray w-full px-4 md:px-8 py-2">
-          <div className="flex text-xs md:text-base">
-            <h2 className="font-sans text-gray">PROBLEMS</h2>
-            <h2 className="font-sans text-gray ml-8">OUTPUT</h2>
-            <h2 className="font-sans text-gray ml-8">DEBUG CONSOLE</h2>
-            <h2
-              className="font-sans text-gray ml-8"
-              style={{ borderBottom: "2px solid #b9374d" }}
-            >
-              TERMINAL
+      <div className="min-h-screen w-full border-2 border-x-0 border-t-gray border-b-0 flex items-center flex-col">
+        <h1 className={`${dark?"text-gray":"text-black"} font-bold text-3xl md:text-5xl mt-16 md:mt-32`}>
+          Website Development
+        </h1>
+        <div className="flex flex-col md:flex-row md:justify-between w-full mt-16 md:mt-32">
+          <div className="flex-1 flex-col border-2 border-y-0 border-l-0 border-r-gray pr-4">
+            <h2 className="text-red font-semibold text-2xl md:text-3xl">
+              <span className="text-blue-sky mr-4 font-roboto">01</span>Frontend
+              Development
             </h2>
+            <p className="text-gray md:mr-4 font-roboto ">
+              Everything you see on a website, like buttons, links, animations,
+              and more, were created by a front end web developer. It is the
+              front end developer's job to take the vision and design concept
+              from the client and implement it through code.
+            </p>
           </div>
-          <div className="mt-4 text-xs md:text-base">
-            <h3 className="text-gray">Microsoft Windows</h3>
-            <h3 className="text-gray">
-              (c) Microsoft Corporation. All rights reserved.
-            </h3>
-            <div className="mt-4">
-              <h3 className="text-gray">
-                C:\Users\Visitor{">"}{" "}
-                <TypeAnimation
-                  sequence={[
-                    "git log",
-                    1000,
-                    "git log --reverse",
-                    1000,
-                    "git log",
-                    2000,
-                    "",
-                    1000,
-                  ]}
-                  speed={50} // Custom Speed from 1-99 - Default Speed: 40
-                  wrapper="span" // Animation will be rendered as a <span>
-                  repeat={Infinity} // Repeat this Animation Sequence infinitely
-                />
-              </h3>
-              {history.map((item, index) => (
-                <div key={index} className={index === 0 ? "" : "mt-4"}>
-                  <h3 className="text-yellow">commit {makeId(40)}</h3>
-                  <h3 className="text-gray">Author: {item.author}</h3>
-                  <h3 className="text-gray">Date: {item.date}</h3>
-                  <h3 className="text-gray mt-4 ml-10">{item.story}</h3>
-                </div>
-              ))}
-            </div>
+          <div className="flex-1 flex-col mt-16 md:ml-16 md:mt-0 border-2 border-y-0 border-l-0 border-r-gray pr-4">
+            <h2 className="text-purple-light font-semibold text-xl md:text-3xl">
+              <span className="text-blue-sky mr-4 font-roboto">02</span>Backend
+              Development
+            </h2>
+            <p className="text-gray md:mr-4 font-roboto">
+              Back-end development means working on server-side software, which
+              focuses on everything you can’t see on a website. Back-end
+              developers ensure the website performs correctly, focusing on
+              databases, back-end logic, application programming interface
+              (APIs), architecture, and servers.
+            </p>
           </div>
         </div>
+        <div className="flex mt-16">
+          <img className="h-16 mr-8" src={HTMLCSSLogo} />
+          <img className="h-16 mr-8" src={JavascriptLogo} />
+          <img className="h-16" src={ReactLogo} />
+        </div>
       </div>
-      
     </div>
   );
 };
