@@ -115,7 +115,7 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="flex mt-16">
+        <div className="flex my-8 md:mt-16">
           <img className="h-16 mr-8" src={HTMLCSSLogo} />
           <img className="h-16 mr-8" src={JavascriptLogo} />
           <img className="h-16" src={ReactLogo} />
