@@ -56,7 +56,7 @@ const ModalContact = () => {
           <h1 className="text-purple font-semibold text-2xl">
             I honestly don't know what to write here hehe
           </h1>
-          <p className="text-purple mt-4">
+          <p className="text-purple hidden md:flex sm:mt-4 ">
             Just want to say thank you for visiting my website, I really hope we
             can work on a project next time. And here's Lorem Ipsum for you.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam semper

@@ -16,12 +16,12 @@ const Container: FC<Props> = ({ children }) => {
   const dark = useAppSelector((state) => state.ui.darkMode);
 
   return (
-    <div>
+    <div
+      className={`${dark ? "bg-purple" : "bg-light"} bg-purple`}
+    >
       <Navbar />
       <div
-        className={`${
-          dark ? "bg-purple" : "bg-light"
-        } md:px-40 px-4 bg-purple min-h-screen`}
+        className={`min-h-screen md:px-40 px-4`}
       >
         {children}
       </div>

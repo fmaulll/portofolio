@@ -4,6 +4,7 @@ import { ReactComponent as Arrow } from "../../assets/icons/Arrow.svg";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { uiActions } from "../../store/ui-slice";
 import { ReactComponent as CrossIcon } from "../../assets/icons/Cross.svg";
+import { ReactComponent as BurgerIcon } from "../../assets/icons/Burger.svg";
 
 const navs = [
   {
@@ -13,10 +14,6 @@ const navs = [
   {
     title: "About",
     url: "/about",
-  },
-  {
-    title: "Projects",
-    url: "/projects",
   },
 ];
 
@@ -93,25 +90,12 @@ const Navbar = () => {
             ></div>
           )}
         </div>
-        {showMenu ? (
-          <div
-            className="cursor-pointer lg:hidden"
-            onClick={() => dispatch(uiActions.openBurger())}
-          >
-            <h2 className="text-blue-sky">
-              close
-              <span className="text-purple-light">()</span>
-            </h2>
-          </div>
-        ) : (
+        {!showMenu && (
           <div
             className="text-slate-100 cursor-pointer lg:hidden"
             onClick={() => dispatch(uiActions.openBurger())}
           >
-            <h2 className="text-blue-sky">
-              burger
-              <span className="text-purple-light">()</span>
-            </h2>
+            <BurgerIcon />
           </div>
         )}
       </div>
