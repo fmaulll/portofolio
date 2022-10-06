@@ -26,7 +26,8 @@ const About = () => {
           Download my resume{" "}
           <a
             className="ml-4 bg-purple-light hover:bg-white drop-shadow p-2 rounded-full transition-all"
-            href=""
+            href="https://drive.google.com/file/d/1aPq6iuhCHnuMkBHRtqzKmdUq6DpEuxEp/view?usp=sharing"
+            target="_blank"
           >
             <DownloadIcon
               className={`${dark ? "fill-purple" : "fill-light"}`}
