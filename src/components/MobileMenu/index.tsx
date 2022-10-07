@@ -73,10 +73,10 @@ const MobileMenu = () => {
         )}
       </div>
       <div className="flex m-4 justify-center items-center">
-        <a href="">
+        <a href="https://www.linkedin.com/in/fmaulll/">
           <LinkedInIcon className="fill-blue-sky" />
         </a>
-        <a href="">
+        <a href="https://github.com/fmaulll">
           <GithubIcon className="fill-blue-sky ml-4" />
         </a>
       </div>
