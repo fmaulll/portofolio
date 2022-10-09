@@ -79,7 +79,7 @@ const ModalContact = () => {
           >
             <label className="text-gray mt-4">Name</label>
             <input
-              className="p-2 focus:outline-none bg-transparent text-white border-2 border-b-gray border-x-0 border-t-0"
+              className={`p-2 focus:outline-none bg-transparent ${dark ? "text-white" : "text-black"} border-2 border-b-gray border-x-0 border-t-0`}
               type="text"
               name="user_name"
               placeholder="Insert your name"
@@ -92,7 +92,7 @@ const ModalContact = () => {
             )}
             <label className="text-gray mt-4">Email</label>
             <input
-              className="p-2 focus:outline-none bg-transparent text-white border-2 border-b-gray border-x-0 border-t-0"
+              className={`p-2 focus:outline-none bg-transparent ${dark ? "text-white" : "text-black"} border-2 border-b-gray border-x-0 border-t-0`}
               type="email"
               name="user_email"
               placeholder="Insert your email"
