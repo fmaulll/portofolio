@@ -26,7 +26,7 @@ const About = () => {
           Download my resume{" "}
           <a
             className="ml-4 bg-purple-light hover:bg-white drop-shadow p-2 rounded-full transition-all"
-            href="https://drive.google.com/file/d/1aPq6iuhCHnuMkBHRtqzKmdUq6DpEuxEp/view?usp=sharing"
+            href="https://drive.google.com/file/d/1cUmVdsdewI938x7Gejkt0m_tsTXDr4nN/view?usp=sharing"
             target="_blank"
           >
             <DownloadIcon
@@ -59,6 +59,7 @@ const About = () => {
           <p className="text-gray">Node.js</p>
           <p className="text-gray">Express</p>
           <p className="text-gray">Laravel</p>
+          <p className="text-gray">Vue</p>
         </div>
       </div>
       <div className="w-full md:flex-1 flex flex-col mt-8 md:mt-0">
