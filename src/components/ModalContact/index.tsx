@@ -108,7 +108,7 @@ const ModalContact = () => {
             )}
             <label className="text-gray mt-4">Message</label>
             <textarea
-              className="p-2 focus:outline-none bg-transparent text-white border-2 border-b-gray border-x-0 border-t-0"
+              className={`p-2 focus:outline-none bg-transparent ${dark ? "text-white" : "text-black"} border-2 border-b-gray border-x-0 border-t-0`}
               name="message"
               placeholder="Insert message"
               onChange={(e) => setMessage(e.target.value)}
